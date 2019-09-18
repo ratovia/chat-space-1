@@ -1,0 +1,32 @@
+.contents
+  .side
+    .side__header
+      .user-name
+        Camus
+      .icon-box
+        = link_to '#' do
+          %i.fa.fa-edit.side__icon
+        = link_to '#' do
+          %i.fa.fa-cog.side__icon
+    .side__group
+      = render partial: "group"
+  .main
+    .main__header
+      .main__group
+        .main__group-name
+          %H1 選択中のグループ名
+        .main__group-member
+          %p2 所属メンバー一覧を一行で表示
+      .main__edit-btn
+        EDIT
+    .main__chat
+      = render partial: "message"
+    .main__form
+      .main__form-area
+        %form{action: "#", method: "post"}
+          %textarea{id: "comment", name: "comment", placeholder: "type a message"}
+          %input{class: "submit", type: "submit", value: "Send"}
+          %label{class: "filelabel", title: "ファイルを選択"}
+            %input{type: "file", name: "datafile", id: "filesend"}
+            %i.fa.fa-picture-o
+            
