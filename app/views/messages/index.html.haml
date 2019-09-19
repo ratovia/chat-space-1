@@ -2,7 +2,7 @@
   .side
     .side__header
       .user-name
-        Camus
+        = current_user.name
       .icon-box
         = link_to '#' do
           %i.fa.fa-edit.side__icon
@@ -29,4 +29,3 @@
           %label{class: "filelabel", title: "ファイルを選択"}
             %input{type: "file", name: "datafile", id: "filesend"}
             %i.fa.fa-picture-o
-            
