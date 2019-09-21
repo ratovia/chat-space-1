@@ -1,15 +1,16 @@
 .contents
-  .side
-    .side__header
-      .user-name
-        = current_user.name
-      .icon-box
-        = link_to '#' do
-          %i.fa.fa-edit.side__icon
-        = link_to '#' do
-          %i.fa.fa-cog.side__icon
-    .side__group
-      = render partial: "group"
+  = render partial: "side_bar"
+  -# .side
+  -#   .side__header
+  -#     .user-name
+  -#       = current_user.name
+  -#     .icon-box
+  -#       = link_to new_group_path do
+  -#         %i.fa.fa-edit.side__icon
+  -#       = link_to edit_user_path(current_user) do
+  -#         %i.fa.fa-cog.side__icon
+  -#   .side__group
+  -#     = render partial: "group"
   .main
     .main__header
       .main__group
