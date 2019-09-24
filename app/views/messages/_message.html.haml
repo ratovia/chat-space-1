@@ -1,10 +1,18 @@
-.chat__name
-  %p3 Speaker
-  %p4 2019/09/10(Tue) 13:56:46
-.chat__talk
-  %p5 ここにトーク内容が反映されます
-.chat__name
-  %p3 Speaker
-  %p4 2019/09/10(Tue) 13:56:46
-.chat__talk
-  %p5 ここにトーク内容が反映されます
+.message
+  .upper-message
+    .upper-message__user-name
+      = message.user.name
+    .upper-message__date
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .lower-message
+    - if message.content.present?
+      %p.lower-message__content
+        = message.content
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+    -# .main__chat
+-#   .chat__name
+-#     %p3 Speaker
+-#     %p4 2019/09/10(Tue) 13:56:46
+-#   .chat__talk
+-#     %p5 ここにトーク内容が反映されます
