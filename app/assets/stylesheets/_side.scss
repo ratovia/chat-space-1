@@ -55,7 +55,7 @@
   width: calc(100vw - 300px);
 
   &__header {
-    height: 100px;
+    height: 99px;
     border-bottom: solid 1px #eee;
     padding: 0 40px;
     display: flex;
@@ -97,72 +97,114 @@
     padding: 6px 40px 0;
   }
   
-    .chat__name {
+    .upper-message {
       padding: 40px 0 0 0;
 
-      p3 {
+      .upper-message__user-name {
         font-size: 16px;
         font-weight: bold;
+        display: inline-block;
       }
 
-      p4 {
+      .upper-message__date {
         font-size: 12px;
         color: #999;
         margin-left: 10px;
+        display: inline-block;
       }
     }
 
-    .chat__talk {
+    .lower-message {
       font-size: 14px;
       margin: 10px 0 0 0;
     }
 
   &__form {
     background-color: #ddd;
-    padding: 20px 40px;
+    // padding: 20px 40px;
   }
 
-  form {
-    height: 55px;
-    width: 1100px;
+  .form {
+    background-color: #DDDDDD;
+    box-sizing: border-box;
+    height: 90px;
+    padding: 20px 50px 20px 40px;
+    &__message {
+      border: none;
+      float: left;
+      height: 50px;
+      width: calc(100% - 150px);
+    }
+    &__mask {
+      background-color: $white;
+      float: left;
+      height: 50px;
+      padding-right: 10px;
+      &__image {
+        font-size: 20px;
+        line-height: 50px;
+      }
+      .hidden {
+        display: none;
+      }
+    }
+    &__submit {
+      background-color: $light_blue;
+      border: none;
+      color: $white;
+      float: right;
+      font-size: 16px;
+      height: 50px;
+      margin-left: 15px;
+      padding: 0 30px;
+    }
   }
-
-  textarea {
-    width: 920px;
-    height: 50px;
-    vertical-align: top;
-    line-height: 50px;
-    padding-left: 10px;
-    }
-
-  &__form-area {
-    height: 50px;
-    font-size: 16px;
-    color: #434A54;
-    input:focus {
-      border:solid 1px #38AEF0;
-    }
-    position: relative;
-  }  
-
-  .submit {
-    padding: 11px 30px;
-    margin-left: 15px;
-    font-size: 20px;
-    background-color: #38AEF0;
-    color: #fff;
-    border-style: none;
-    cursor: pointer;
-  }
-
-    #filesend {
-      display: none;
-    }
-
-    .fa-picture-o {
-      position: absolute;
-      top: 16px;
-      right: 145px;
-      z-index: 1;
-    }
 }
+
+
+
+
+//   form {
+//     height: 55px;
+//     width: 1100px;
+//   }
+
+//   textarea {
+//     width: 920px;
+//     height: 50px;
+//     vertical-align: top;
+//     line-height: 50px;
+//     padding-left: 10px;
+//     }
+
+//   &__form-area {
+//     height: 50px;
+//     font-size: 16px;
+//     color: #434A54;
+//     input:focus {
+//       border:solid 1px #38AEF0;
+//     }
+//     position: relative;
+//   }  
+
+//   .submit {
+//     padding: 11px 30px;
+//     margin-left: 15px;
+//     font-size: 20px;
+//     background-color: #38AEF0;
+//     color: #fff;
+//     border-style: none;
+//     cursor: pointer;
+//   }
+
+//     #filesend {
+//       display: none;
+//     }
+
+//     .fa-picture-o {
+//       position: absolute;
+//       top: 16px;
+//       right: 145px;
+//       z-index: 1;
+//     }
+// }
