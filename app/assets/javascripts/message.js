@@ -34,8 +34,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.main__chat').append(html);
-      $('.form__message').val('')
-      $('.hidden').val('')
+      $('form')[0].reset();
       $('.form__submit').attr('disabled', false);
       $('.main__chat').animate({ scrollTop: $('.main__chat')[0].scrollHeight});
     })
