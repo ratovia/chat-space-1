@@ -96,10 +96,11 @@
     color: #434a54;
     overflow: scroll;
     padding: 6px 40px 0;
+    overflow: auto;
   }
   
     .upper-message {
-      padding: 40px 0 0 0;
+      padding: 20px 0 0 0;
 
       .upper-message__user-name {
         font-size: 16px;
@@ -117,12 +118,11 @@
 
     .lower-message {
       font-size: 14px;
-      margin: 10px 0 0 0;
+      margin: 10px 0 20px 0;
     }
 
   &__form {
     background-color: #ddd;
-    // padding: 20px 40px;
   }
 
   .form {
