@@ -1,23 +1,14 @@
 .contents
   = render partial: "shared/side_bar"
-  -# .side
-  -#   .side__header
-  -#     .user-name
-  -#       = current_user.name
-  -#     .icon-box
-  -#       = link_to new_group_path do
-  -#         %i.fa.fa-edit.side__icon
-  -#       = link_to edit_user_path(current_user) do
-  -#         %i.fa.fa-cog.side__icon
-  -#   .side__group
-  -#     = render partial: "group"
   .main
     .main__header
       .main__group
         .main__group-name
-          %H1 選択中のグループ名
+          %h1= @group.name
         .main__group-member
-          %p2 所属メンバー一覧を一行で表示
+          Member:
+          - @group.users.each do |user|
+            = user.name
       .main__edit-btn
         EDIT
     .main__chat
@@ -25,39 +16,9 @@
     .main__form
       .form
         = form_for [@group, @message] do |f|
-          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          = f.text_field :content, class: 'form__message', id: 'form__message', placeholder: 'type a message'
           .form__mask
             = f.label :image, class: 'form__mask__image' do
               = fa_icon 'picture-o', class: 'icon'
               = f.file_field :image, class: 'hidden'
           = f.submit 'Send', class: 'form__submit'
-
-      -# .main__form-area
-      -#   %form{action: "#", method: "post"}
-      -#     %textarea{id: "comment", name: "comment", placeholder: "type a message"}
-      -#     %input{class: "submit", type: "submit", value: "Send"}
-      -#     %label{class: "filelabel", title: "ファイルを選択"}
-      -#       %input{type: "file", name: "datafile", id: "filesend"}
-      -#       %i.fa.fa-picture-o
-
-
-  -# .main
-  -#   .main__header
-  -#     .main__group
-  -#       .main__group-name
-  -#         %H1 選択中のグループ名
-  -#       .main__group-member
-  -#         %p2 所属メンバー一覧を一行で表示
-  -#     .main__edit-btn
-  -#       EDIT
-  -#   .main__chat
-  -#     = render @messages
-  -#   .main__form
-  -#     .form
-  -#       = form_for [@group, @message] do |f|
-  -#         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-  -#         .form__mask
-  -#           = f.label :image, class: 'form__mask__image' do
-  -#             = fa_icon 'picture-o', class: 'icon'
-  -#             = f.file_field :image, class: 'hidden'
-  -#         = f.submit 'Send', class: 'form__submit'
