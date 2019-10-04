@@ -17,7 +17,25 @@ li {
   font-size: 13px;
 }
 
+.boxes {
+  display: flex;
+  justify-content: space-between;
+}
 
+.box {
+  line-height: 50px;
+  font-size: 14px;
+  border-bottom: solid 1px #ddd;
+  width: 70%;
+  float: right;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.boxes > p {
+  line-height: 50px;
+  font-size: 14px;
+}
 
 .chat-group-form {
   width: 980px;
@@ -98,9 +116,11 @@ li {
     float: right;
     display: inline-block;
     cursor: pointer;
+    
     &--add {
       color: #38aef0;
     }
+
     &--remove {
       color: #f05050;
     }

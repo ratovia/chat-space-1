@@ -10,7 +10,7 @@
           - @group.users.each do |user|
             = user.name
       .main__edit-btn
-        EDIT
+        = link_to 'Edit', edit_group_path(@group)
     .main__chat
       = render @messages
     .main__form
