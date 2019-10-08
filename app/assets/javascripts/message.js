@@ -1,7 +1,9 @@
 $(function(){
   function buildHTML(message){
     var content = message.content ?  `<p class="lower-message__content">${message.content}</p>` : "";
-    var image = message.image ?  `<img class="lower-message__image" src="${message.image}">` : "";
+    var image = message.image.url ?  `<img class="lower-message__image" src="${message.image.url}">` : "";
+    console.log(message.image)
+
       
     var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
@@ -13,35 +15,12 @@ $(function(){
                     </div>
                   </div>
                   <div class="lower-message">
-                    ${content}
-                    ${image}
+                      ${content}
+                      ${image}
                   </div>
                 </div>`
     return html;
   }
-
-  var buildMessageHTML = function(message) {
-    var content = message.content ?  `<p class="lower-message__content">${message.content}</p>` : "";
-    var image = message.image.url ?  `<img class="lower-message__image" src="${message.image.url}">` : "";
-
-      var html = `<div class="message" data-message-id="${message.id}">
-        <div class="upper-message">
-          <div class="upper-message__user-name">
-            ${message.user_name}
-          </div>
-          <div class="upper-message__date">
-            ${message.created_at}
-          </div>
-        </div>
-        <div class="lower-message">
-          <p class="lower-message__content">
-            ${content}
-          </p>
-          ${image}
-        </div>
-      </div>`
-    return html;
-  };
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -87,7 +66,7 @@ $(function(){
       //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
       messages.forEach(function(message) {
       //メッセージが入ったHTMLを取得
-      insertHTML = buildMessageHTML(message);
+      insertHTML = buildHTML(message);
       //メッセージを追加
       $('.main__chat').append(insertHTML);
       $('.main__chat').animate({ scrollTop: $('.main__chat')[0].scrollHeight});
