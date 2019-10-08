@@ -3,7 +3,7 @@
   .main
     .main__header
       .main__group
-        .main__group-name
+        .main__group-name{data: {group: {id: @group.id}}}
           %h1= @group.name
         .main__group-member
           Member:
