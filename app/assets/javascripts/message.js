@@ -53,7 +53,6 @@ $(function(){
     
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     last_message_id = $('.message').last().data('message-id');
-
     $.ajax({
       //ルーティングで設定した通りのURLを指定
       url: 'api/messages',
@@ -77,8 +76,8 @@ $(function(){
     })
   
     .fail(function() {
-      alert('error');
-    
+      console.log("error");
+   
     });
     };
 
