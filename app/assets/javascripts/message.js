@@ -46,6 +46,11 @@ $(function(){
   })
 
   var reloadMessages = function() {
+
+    //該当グループにいるときのみ自動更新を適用する
+    var groupid = /\/groups\/\d{0,}\/messages/;
+    if(location.href.match(groupid)){
+    
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     last_message_id = $('.message').last().data('message-id');
 
@@ -75,6 +80,9 @@ $(function(){
       alert('error');
     
     });
+    };
+
+    return 
   };
   
   setInterval(reloadMessages, 5000);
