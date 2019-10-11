@@ -47,7 +47,7 @@ $(function(){
 
   var reloadMessages = function() {
 
-    //該当グループにいるときのみ自動更新を適用する
+    // 該当グループにいるときのみ自動更新を適用する
     var groupid = /\/groups\/\d{0,}\/messages/;
     if(location.href.match(groupid)){
     
@@ -86,3 +86,4 @@ $(function(){
   
   setInterval(reloadMessages, 5000);
 });
+
