@@ -34,7 +34,7 @@
         -if @users
           - @users.each do |user|
             .chat-group-user.clearfix
-              %input{ name: "group[user_ids][]",  type: "hidden",  value: "#{user.id}"}/
+              %input{ name: "group[user_ids][]",  type: "hidden",  value: "#{user.id}"  ,class: "chat-group-user__selected_user_id"}/
               %p.chat-group-user__name=user.name
               .user-search-add.chat-group-user__btn.chat-group-user__btn--remove 削除
 
