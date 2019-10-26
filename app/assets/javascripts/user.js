@@ -1,6 +1,4 @@
 $(function() {
-
-  var search_list = $(".listview.js-lazy-load-images");
   
   function appendUser(user) {
      var html = `<div class="chat-group-user clearfix">
@@ -12,7 +10,7 @@ $(function() {
 
   function addUser(user_id,user_name) {
     var html = `<div class="chat-group-user clearfix">
-                 <input value="${ user_id }" type="hidden" name="group[user_ids][]">
+                 <input value="${ user_id }" type="hidden" name="group[user_ids][]" class="chat-group-user__selected_user_id">
                  <p class="chat-group-user__name">${ user_name }</p>
                  <div class="user-search-add chat-group-user__btn chat-group-user__btn--remove">削除</div>
                </div>`
@@ -28,11 +26,18 @@ $(function() {
 
     $("#user-search-field").on("keyup", function() {
       var input = $("#user-search-field").val();
+      var selected_users = [];
+      
+      $(".chat-group-user__selected_user_id").each(function(){
+        selected_users.push($(this).attr('value'));
+      });
 
       $.ajax({
         type: 'GET',
         url: '/users',
-        data: { keyword: input },
+        data: { keyword: input,
+                selected_users: selected_users
+              },
         dataType: 'json'
       })
 
