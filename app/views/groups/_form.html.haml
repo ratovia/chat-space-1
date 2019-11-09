@@ -29,7 +29,6 @@
     .chat-group-form__field--right
       #user-add-result
         .chat-group-user.clearfix
-          %input{ name: "group[user_ids][]",  type: "hidden",  value: "#{current_user.id}"}/
           %input{ name: "group[user_ids][]",  type: "hidden",  value: "#{current_user.id}"}
           %p.chat-group-user__name=current_user.name
         -if @users
