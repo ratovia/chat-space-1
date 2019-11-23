@@ -5,7 +5,7 @@ class Api::MessagesController < ApplicationController
     # ajaxで送られてくる最後のメッセージのid番号を変数に代入
     last_message_id = params[:message_id].to_i
     # 取得したグループでのメッセージ達から、idがlast_message_idよりも新しい(大きい)メッセージ達のみを取得
-    @messages = Message.includes(:user).where("id > #{last_message_id}")
+    @messages = group.messages.includes(:user).where("id > #{last_message_id}")
+    # @messages = Message.includes(:user).where("id > #{last_message_id}")  これは全グループのメッセージから取得してしまうのでやめとく
   end
 end
-
