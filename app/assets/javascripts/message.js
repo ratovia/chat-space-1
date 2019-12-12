@@ -52,7 +52,12 @@ $(function(){
   var reloadMessages = function() {
 
     // 該当グループにいるときのみ自動更新を適用する
+      // 一つ目のスラッシュと、最後のスラッシュは、正規表現の開始と終了
+      // 正規表現の中でスラッシュや？を使うには、バックスラッシュが必要
+      //\d（数字）、{0,}（0以上の数字が入る）
     var groupid = /\/groups\/\d{0,}\/messages/;
+    // match  含まれているかどうか？
+    // location.href  開いている場所のURL
     if(location.href.match(groupid)){
     
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
